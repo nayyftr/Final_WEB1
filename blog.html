@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Eco Visionary</title>
+
+    <!-- Link ke Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: 'Urbanist', sans-serif;
+        }
+
+        /* Gaya dasar untuk Card */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Efek zoom untuk card saat kursor diarahkan */
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gambar dalam card tanpa efek zoom */
+        .zoom-img {
+            cursor: pointer;
+            transition: none; /* Menghapus efek zoom pada gambar */
+        }
+
+        /* Modal Style */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Ketika checkbox dicentang, modal muncul */
+        .modal-trigger:checked + .modal {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            overflow: hidden;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            cursor: zoom-out;
+        }
+
+        /* Checkbox invisible */
+        .modal-trigger {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="bg-green-600 p-4 shadow-lg sticky top-0 z-50 backdrop-blur-lg bg-opacity-70 transition-all duration-300">
+        <div class="container mx-auto flex items-center justify-between">
+            <div class="text-white font-bold text-3xl">
+                Eco/<span class="text-[#0A6847]">Visionary</span>
+            </div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-white hover:text-green-200">Beranda</a></li>
+                    <li><a href="blog.html" class="text-white hover:text-green-200">Blog</a></li>
+                    <li><a href="#about" class="text-white hover:text-green-200">About</a></li>
+                    <li><a href="#contact" class="text-white hover:text-green-200">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<!-- Blog Section -->
+<section id="blog" class="py-16 bg-gray-100">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-[#0A6847] mb-8">Artikel Blog Terbaru</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Blog Post 1 -->
+            <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+                <label for="modal1">
+                    <img src="Gambar 2.jpg" alt="Hidup Berkelanjutan" class="w-full h-48 object-cover zoom-img" />
+                </label>
+                <input type="checkbox" id="modal1" class="modal-trigger" />
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-green-700">Praktik Hidup Berkelanjutan</h3>
+                    <p class="mt-4 text-gray-600">Temukan cara mudah untuk mengurangi sampah, menghemat energi, dan membuat pilihan ramah lingkungan dalam kehidupan sehari-hari.</p>
+                    <a href="#" class="text-green-500 hover:text-green-700 mt-4 block">Baca Selengkapnya</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal">
+                    <div class="modal-content">
+                        <img src="Gambar 2.jpg" alt="Hidup Berkelanjutan" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+                <label for="modal2">
+                    <img src="Gambar 3.jpg" alt="Wisata Ramah Lingkungan" class="w-full h-48 object-cover zoom-img" />
+                </label>
+                <input type="checkbox" id="modal2" class="modal-trigger" />
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-green-700">Tips Wisata Ramah Lingkungan</h3>
+                    <p class="mt-4 text-gray-600">Berwisata dengan cara yang ramah lingkungan dengan tips untuk mengurangi jejak karbon saat menjelajahi dunia.</p>
+                    <a href="#" class="text-green-500 hover:text-green-700 mt-4 block">Baca Selengkapnya</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal">
+                    <div class="modal-content">
+                        <img src="Gambar 3.jpg" alt="Wisata Ramah Lingkungan" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+                <label for="modal3">
+                    <img src="Gambar 4.jpg" alt="Inovasi Ramah Lingkungan" class="w-full h-48 object-cover zoom-img" />
+                </label>
+                <input type="checkbox" id="modal3" class="modal-trigger" />
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-green-700">Inovasi Teknologi Ramah Lingkungan</h3>
+                    <p class="mt-4 text-gray-600">Jelajahi inovasi terbaru dalam energi terbarukan, teknologi hijau, dan praktik bisnis berkelanjutan.</p>
+                    <a href="#" class="text-green-500 hover:text-green-700 mt-4 block">Baca Selengkapnya</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal">
+                    <div class="modal-content">
+                        <img src="Gambar 4.jpg" alt="Inovasi Ramah Lingkungan"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 4 -->
+            <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+                <label for="modal4">
+                    <img src="Gambar 5.jpg" alt="Pemanfaatan Energi Terbarukan" class="w-full h-48 object-cover zoom-img" />
+                </label>
+                <input type="checkbox" id="modal4" class="modal-trigger" />
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-green-700">Pemanfaatan Energi Terbarukan</h3>
+                    <p class="mt-4 text-gray-600">Pelajari cara-cara baru dalam mengimplementasikan energi terbarukan untuk kehidupan yang lebih ramah lingkungan.</p>
+                    <a href="#" class="text-green-500 hover:text-green-700 mt-4 block">Baca Selengkapnya</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal">
+                    <div class="modal-content">
+                        <img src="Gambar 5.jpg" alt="Pemanfaatan Energi Terbarukan" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 5 -->
+            <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+                <label for="modal5">
+                    <img src="Gambar 6.jpg" alt="Solusi Daur Ulang Plastik" class="w-full h-48 object-cover zoom-img" />
+                </label>
+                <input type="checkbox" id="modal5" class="modal-trigger" />
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-green-700">Solusi Daur Ulang Plastik</h3>
+                    <p class="mt-4 text-gray-600">Inovasi terbaru dalam mendaur ulang plastik untuk mengurangi polusi dan dampak lingkungan.</p>
+                    <a href="#" class="text-green-500 hover:text-green-700 mt-4 block">Baca Selengkapnya</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal">
+                    <div class="modal-content">
+                        <img src="Gambar 6.jpg" alt="Solusi Daur Ulang Plastik" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 6 -->
+            <div class="card bg-white shadow-lg rounded-lg overflow-hidden">
+                <label for="modal6">
+                    <img src="Gambar 7.jpg" alt="Teknologi Hijau dalam Pertanian" class="w-full h-48 object-cover zoom-img" />
+                </label>
+                <input type="checkbox" id="modal6" class="modal-trigger" />
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-green-700">Teknologi Hijau dalam Pertanian</h3>
+                    <p class="mt-4 text-gray-600">Menjelajahi solusi teknologi hijau untuk meningkatkan produktivitas pertanian yang ramah lingkungan.</p>
+                    <a href="#" class="text-green-500 hover:text-green-700 mt-4 block">Baca Selengkapnya</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal">
+                    <div class="modal-content">
+                        <img src="Gambar 7.jpg" alt="Teknologi Hijau dalam Pertanian" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer Section -->
+    <footer class="bg-green-600 py-6 backdrop-blur-lg bg-opacity-80">
+        <div class="container mx-auto text-center text-white">
+            <p>&copy; 2024 Eco Visionary</p>
+        </div>
+    </footer>
+</body>
+</html>
